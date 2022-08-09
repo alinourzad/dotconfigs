@@ -25,7 +25,7 @@ sudo apt-get install -qq xinit \
 print_message "INSTALLING PACKAGES DONE."
 
 create_link(){
-	if [ -! -d ~/.config ]; 
+	if [[ ! -d ~/.config ]]
 	then
 		mkdir ~/.config
 	fi
