@@ -21,7 +21,8 @@ sudo apt-get install -qq xinit \
 	network-manager-gnome \
 	fonts-firacode \
 	qutebrowser \
-	vim 
+	vim \
+	pulseaudio
 print_message "INSTALLING PACKAGES DONE."
 
 create_link(){
