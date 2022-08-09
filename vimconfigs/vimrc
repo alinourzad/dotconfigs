@@ -1,0 +1,12 @@
+set nu rnu
+set cuc
+set ts=4 sw=4
+set lpl
+set modeline
+set cc=80
+
+syntax enable
+
+colo slate
+
+filetype plugin indent on
