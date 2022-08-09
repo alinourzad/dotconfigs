@@ -13,7 +13,8 @@ sudo apt install -y xinit \
 	feh \
 	network-manager-gnome \
 	fonts-firacode \
-	qutebrowser
+	qutebrowser \
+	vim 
 
 clone_repository () {
 	cd ~
