@@ -2,6 +2,10 @@
 # wm independent hotkeys
 #
 
+# volume
+XF86Audio{Mute,RaiseVolume,LowerVolume}
+	~/dotconfigs/scripts/pavolume.sh --{togmute,up,down}
+
 # terminal emulator
 super + Return
 	x-terminal-emulator
