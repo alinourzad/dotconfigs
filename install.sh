@@ -3,7 +3,14 @@
 
 set -e 
 
-sudo apt install -y xinit \
+print_message () {
+	echo ''
+	echo $1
+	echo ''
+}
+
+print_message "INSTALLING REQUIRED PACKAGES"
+sudo apt-get install -qq xinit \
 	rofi \
 	gh git \
 	polybar \
@@ -15,11 +22,7 @@ sudo apt install -y xinit \
 	fonts-firacode \
 	qutebrowser \
 	vim 
-
-clone_repository () {
-	cd ~
-	git clone https://github.com/alinourzad/dotconfigs 
-}
+print_message "INSTALLING PACKAGES DONE."
 
 create_link(){
 	if [ -! -d ~/.config ]; 
@@ -33,24 +36,22 @@ create_link(){
 	ln -s ../dotconfigs/polybar .
 }
 
-if [[ ! -d ~/dotconfigs ]]
-then
-	echo 'CLONING REPOSITORY' clone_repository 
-elif [[ -d ~/dotconfigs ]] 
-then
-	echo 'PULLING REPOSITORY'
-	cd ~/dotconfigs
-	git pull
-	cd ~
-fi
-
 if [[ ! -L ~/.config/bspwm ]]
 then
-	echo 'CREATING LINKS'
+	print_message 'CREATING LINKS'
 	create_link
+	print_message 'CREATING LINGS DONE.'
 fi
 
 echo 'exec bspwm' > ~/.xsession
 
-echo 'DOWNLOADING WALLPAPERS'
-~/dotconfigs/wallhaven.sh
+print_message 'DOWNLOADING WALLPAPERS...'
+~/dotconfigs/wallhaven.sh > /dev/null
+print_message 'DOWNLOADING WALLPAPERS DONE.'
+
+if grep "managed=false" /etc/NetworkManager/NetworkManager.conf
+then
+	print_message 'CONFIGURING NETWORKMANAGER...'
+	sudo sed -i 's/managed=false/managed=true/g' /etc/NetworkManager/NetworkManager.conf
+	print_message 'NETWORKMANAGER CONFGURATION DONE.'
+fi
