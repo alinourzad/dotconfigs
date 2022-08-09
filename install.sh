@@ -55,3 +55,11 @@ then
 	sudo sed -i 's/managed=false/managed=true/g' /etc/NetworkManager/NetworkManager.conf
 	print_message 'NETWORKMANAGER CONFGURATION DONE.'
 fi
+
+if [[ ! -L ~/.vimrc ]]
+then
+	print_message 'VIMRC'
+	cd ~
+	ln -s dotconfigs/vimconfigs/vimrc ~/.vimrc
+	print_message 'VIMRC DONE.'
+fi
