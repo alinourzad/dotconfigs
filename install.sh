@@ -4,12 +4,20 @@
 set -e 
 
 sudo apt install -y xinit \
+	gh git \
 	polybar \
 	bspwm \
-	xfce4-polybar \
+	xfce4-terminal \
 	picom \
 	feh \
-	network-manager-gnome
+	network-manager-gnome \
+	fonts-firacode \
+	qutebrowser
+
+clone_repository () {
+	cd ~
+	git clone https://github.com/alinourzad/dotconfigs 
+}
 
 create_link(){
 	if [ -! -d ~/.config ]; 
@@ -23,9 +31,24 @@ create_link(){
 	ln -s ../dotconfigs/polybar .
 }
 
+if [[ ! -d ~/dotconfigs ]]
+then
+	echo 'CLONING REPOSITORY' clone_repository 
+elif [[ -d ~/dotconfigs ]] 
+then
+	echo 'PULLING REPOSITORY'
+	cd ~/dotconfigs
+	git pull
+	cd ~
+fi
+
 if [[ ! -L ~/.config/bspwm ]]
 then
+	echo 'CREATING LINKS'
 	create_link
 fi
 
 echo 'exec bspwm' > ~/.xsession
+
+echo 'DOWNLOADING WALLPAPERS'
+~/dotconfigs/wallhaven.sh
