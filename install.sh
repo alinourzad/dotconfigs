@@ -1,5 +1,5 @@
 #!/bin/bash
-#vim: set noet ts=2 sw=2:
+# vim: set noet ts=2 sw=2 ft=sh:
 
 set -e 
 
@@ -63,3 +63,4 @@ then
 	ln -s dotconfigs/vimconfigs/vimrc ~/.vimrc
 	print_message 'VIMRC DONE.'
 fi
+
