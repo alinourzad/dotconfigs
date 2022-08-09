@@ -4,6 +4,7 @@
 set -e 
 
 sudo apt install -y xinit \
+	rofi \
 	gh git \
 	polybar \
 	bspwm \
