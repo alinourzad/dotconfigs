@@ -4,9 +4,11 @@ set ts=4 sw=4
 set lpl
 set modeline
 set cc=80
+set listchars=tab:>>,eol:$,space:-
 
 syntax enable
 
 colo slate
 
 filetype plugin indent on
+
