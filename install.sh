@@ -22,7 +22,8 @@ sudo apt-get install -qq xinit \
 	fonts-firacode \
 	qutebrowser \
 	vim \
-	pulseaudio
+	pulseaudio \
+	python3-pip
 print_message "INSTALLING PACKAGES DONE."
 
 create_link(){
@@ -65,3 +66,7 @@ then
 	print_message 'VIMRC DONE.'
 fi
 
+if ! python3 -m pip list | grep -i ansible-lint > /dev/null
+then
+	python3 -m pip install --upgrade ansible-lint
+fi
