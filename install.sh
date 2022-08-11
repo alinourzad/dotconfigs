@@ -16,7 +16,6 @@ sudo apt-get install -qq xinit \
 	polybar \
 	bspwm \
 	xfce4-terminal \
-	picom \
 	feh \
 	network-manager-gnome \
 	fonts-firacode \
@@ -51,7 +50,7 @@ print_message 'DOWNLOADING WALLPAPERS...'
 ~/dotconfigs/wallhaven.sh > /dev/null
 print_message 'DOWNLOADING WALLPAPERS DONE.'
 
-if grep "managed=false" /etc/NetworkManager/NetworkManager.conf
+if grep "managed=false" /etc/NetworkManager/NetworkManager.conf > dev/null
 then
 	print_message 'CONFIGURING NETWORKMANAGER...'
 	sudo sed -i 's/managed=false/managed=true/g' /etc/NetworkManager/NetworkManager.conf
@@ -66,7 +65,3 @@ then
 	print_message 'VIMRC DONE.'
 fi
 
-if ! python3 -m pip list | grep -i ansible-lint > /dev/null
-then
-	python3 -m pip install --upgrade ansible-lint
-fi
