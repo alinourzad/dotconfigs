@@ -50,7 +50,7 @@ print_message 'DOWNLOADING WALLPAPERS...'
 ~/dotconfigs/wallhaven.sh > /dev/null
 print_message 'DOWNLOADING WALLPAPERS DONE.'
 
-if grep "managed=false" /etc/NetworkManager/NetworkManager.conf > dev/null
+if grep "managed=false" /etc/NetworkManager/NetworkManager.conf > /dev/null
 then
 	print_message 'CONFIGURING NETWORKMANAGER...'
 	sudo sed -i 's/managed=false/managed=true/g' /etc/NetworkManager/NetworkManager.conf
