@@ -9,7 +9,7 @@ alert = #A54242
 disabled = #707880
 
 [bar/example]
-monitor = "eDP-1"
+# monitor = "eDP-1"
 width = 80%
 height = 24pt
 offset-x = 10%

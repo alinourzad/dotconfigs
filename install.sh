@@ -22,6 +22,7 @@ sudo apt-get install -qq xinit \
 	qutebrowser \
 	vim \
 	pulseaudio \
+	picom \
 	python3-pip
 print_message "INSTALLING PACKAGES DONE."
 
@@ -32,9 +33,9 @@ create_link(){
 	fi
 	
 	cd ~/.config
-	ln -s ../dotconfigs/bspwm .
-	ln -s ../dotconfigs/sxhkd .
-	ln -s ../dotconfigs/polybar .
+	ln -s ../dotconfigs/bspwm   . || echo 'bspwm exists'
+	ln -s ../dotconfigs/sxhkd   . || echo 'sxhkd already there'
+	ln -s ../dotconfigs/polybar . || echo 'polybar already there'
 }
 
 if [[ ! -L ~/.config/bspwm ]]
