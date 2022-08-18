@@ -10,10 +10,10 @@ disabled = #707880
 
 [bar/example]
 # monitor = "eDP-1"
-width = 80%
+width = 100%
 height = 24pt
-offset-x = 10%
-radius = 5.0
+offset-x = 0%
+radius = 0.0
 
 bottom = true
 
