@@ -73,3 +73,9 @@ if [[ ! -L ~/.config/dunst ]];
 then
 	ln -s ~/dotconfigs/dunst ~/.config/dunst
 fi
+
+# PICOM CONFIGURATION
+if [[ ! -L ~/.config/picom ]];
+then
+	ln -s ~/dotconfigs/picom ~/.config/picom
+fi

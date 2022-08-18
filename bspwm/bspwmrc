@@ -6,12 +6,7 @@ pgrep -x dunst || dunst &
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-if which picom >/dev/null
-then
-	pgrep -x picom > /dev/null || picom --experimental-backends \
-		--corner-radius 10 --blur-method "dual_kawase" --blur-kern "3x3box" \
-		--backend glx &
-fi
+pgrep -x picom || picom -b --experimental-backends
 
 xsetroot -cursor_name left_ptr
 
