@@ -2,6 +2,8 @@
 
 setxkbmap -layout 'us,se,ir' -option grp:alt_shift_toggle &
 
+pgrep -x dunst || dunst &
+
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 if which picom >/dev/null

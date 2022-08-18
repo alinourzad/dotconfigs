@@ -24,6 +24,7 @@ sudo apt-get install -qq xinit \
 	pulseaudio \
 	picom \
 	i3lock-fancy \
+	dunst \
 	python3-pip
 print_message "INSTALLING PACKAGES DONE."
 
@@ -67,3 +68,8 @@ then
 	print_message 'VIMRC DONE.'
 fi
 
+# HANDLING DUNST CONFIGURATION
+if [[ ! -L ~/.config/dunst ]];
+then
+	ln -s ~/dotconfigs/dunst ~/.config/dunst
+fi
