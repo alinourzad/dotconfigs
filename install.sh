@@ -23,6 +23,7 @@ sudo apt-get install -qq xinit \
 	vim \
 	pulseaudio \
 	picom \
+	i3lock-fancy \
 	python3-pip
 print_message "INSTALLING PACKAGES DONE."
 
