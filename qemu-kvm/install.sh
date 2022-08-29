@@ -2,7 +2,7 @@
 #vim: set noet ts=2 sw=2:
 
 install_tools() {
-	apt-get install libvirt-clients libvirt-daemon-system qemu-kvm virtinst virt-manager virt-viewer
+	sudo apt-get install libvirt-clients libvirt-daemon-system qemu-kvm virtinst virt-manager virt-viewer
 }
 
 install_tools
