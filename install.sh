@@ -25,6 +25,7 @@ sudo apt-get install -qq xinit \
 	picom \
 	i3lock-fancy \
 	dunst \
+	nnn \
 	python3-pip
 print_message "INSTALLING PACKAGES DONE."
 
@@ -34,10 +35,9 @@ create_link(){
 		mkdir ~/.config
 	fi
 	
-	cd ~/.config
-	ln -s ../dotconfigs/bspwm   . || echo 'bspwm exists'
-	ln -s ../dotconfigs/sxhkd   . || echo 'sxhkd already there'
-	ln -s ../dotconfigs/polybar . || echo 'polybar already there'
+	ln -s $PWD/bspwm   ~/.config/bspwm   || echo 'bspwm exists'
+	ln -s $PWD/sxhkd   ~/.config/sxhkd   || echo 'sxhkd already there'
+	ln -s $PWD/polybar ~/.config/polybar || echo 'polybar already there'
 }
 
 if [[ ! -L ~/.config/bspwm ]]
@@ -50,7 +50,7 @@ fi
 echo 'exec bspwm' > ~/.xsession
 
 print_message 'DOWNLOADING WALLPAPERS...'
-~/dotconfigs/wallhaven.sh > /dev/null
+$PWD/wallhaven.sh > /dev/null
 print_message 'DOWNLOADING WALLPAPERS DONE.'
 
 if grep "managed=false" /etc/NetworkManager/NetworkManager.conf > /dev/null
@@ -60,22 +60,21 @@ then
 	print_message 'NETWORKMANAGER CONFGURATION DONE.'
 fi
 
-if [[ ! -L ~/.vimrc ]]
+if [[ ! -L ~/.vimrc ]] && [[ ! -f ~/.vimrc ]] 
 then
 	print_message 'VIMRC'
-	cd ~
-	ln -s dotconfigs/vimconfigs/vimrc ~/.vimrc
+	ln -s $PWD/vimconfigs/vimrc ~/.vimrc
 	print_message 'VIMRC DONE.'
 fi
 
 # HANDLING DUNST CONFIGURATION
 if [[ ! -L ~/.config/dunst ]];
 then
-	ln -s ~/dotconfigs/dunst ~/.config/dunst
+	ln -s $PWD/dunst ~/.config/dunst
 fi
 
 # PICOM CONFIGURATION
 if [[ ! -L ~/.config/picom ]];
 then
-	ln -s ~/dotconfigs/picom ~/.config/picom
+	ln -s $PWD/picom ~/.config/picom
 fi
